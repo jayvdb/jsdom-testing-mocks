@@ -1,4 +1,4 @@
-import mediaQuery, { MediaValues } from 'css-mediaquery';
+import mediaQuery from 'css-mq-parser';
 import { mockMediaQueryListEvent } from './MediaQueryListEvent';
 import { getConfig } from '../tools';
 import { isJsdomEnv, WrongEnvironmentError } from '../helper';
@@ -27,6 +27,24 @@ const config = getConfig();
  *  viewport.cleanup()
  *
  */
+
+export type MediaValues = Record<
+    | "orientation"
+    | "scan"
+    | "width"
+    | "height"
+    | "device-width"
+    | "device-height"
+    | "resolution"
+    | "aspect-ratio"
+    | "device-aspect-ratio"
+    | "grid"
+    | "color"
+    | "color-index"
+    | "monochrome"
+    | "prefers-color-scheme",
+    unknown
+>;
 
 export type ViewportDescription = Partial<MediaValues>;
 export type MockViewport = {
